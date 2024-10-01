@@ -22,7 +22,7 @@
                     <li class="nav-item"><a class="nav-link" href="#gallery">Galeria</a></li>
                     <li class="nav-item"><a class="nav-link" href="#visit">Visite-nos</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contato</a></li>
-                    <li class="nav-item"><a class="nav-link" href="quiz.html">Quiz</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="startQuiz()">Quiz</a></li>
                     <li class="nav-item">
                         <button id="exitBtn" class="btn btn-outline-warning nav-link">SAIR</button>
                     </li>
@@ -167,6 +167,40 @@
         }
       });
     </script>
+<script>
+  function startQuiz() {
+    // Array de perguntas e respostas corretas
+    const questions = [
+        {
+            question: '1. Quem pintou "O Nascimento de Vênus"? (a) Sandro Botticelli (b) Michelangelo',
+            correctAnswer: 'a'
+        },
+        {
+            question: '2. Em que ano Vincent van Gogh pintou "A Noite Estrelada"? (a) 1889 (b) 1870',
+            correctAnswer: 'a'
+        },
+        {
+            question: '3. Qual é o tema da pintura "A Última Ceia"? (a) A ceia final de Jesus com seus apóstolos (b) A crucificação de Jesus',
+            correctAnswer: 'a'
+        }
+    ];
+
+    let score = 0;
+
+    // Iterar sobre cada pergunta
+    for (let i = 0; i < questions.length; i++) {
+        let userAnswer = prompt(questions[i].question).toLowerCase();
+
+        // Verificar se a resposta está correta
+        if (userAnswer === questions[i].correctAnswer) {
+            score++;
+        }
+    }
+
+    // Exibir a pontuação final
+    alert(`Sua pontuação é: ${score}/${questions.length}`);
+  }
+</script>
 
 </body>
 </html>
